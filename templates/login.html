@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cartório Policial</title>
+</head>
+<body bgcolor="#1C1C1C">
+    <h1 style="font-family:verdana; color:gold"; align=center>Delegacia de Polícia Civil da Comarca de XXXXXXXX</h1>
+    <div align="center">
+        <img src="https://images.vexels.com/media/users/3/158396/isolated/lists/e0a1da33b8fcd15cf287ebc7c9b31d98-policia-de-ilustracao-de-crachas.png" width=100 height=100>
+    </div>
+    <h2 style="font-family:verdana; color:white"; align=center>LOGIN</h2>
+    <br>
+    <br>
+    <form action="submit" method = "POST"> {% csrf_token %}
+        <div align="center">
+            <label style="font-family:verdana; color:white">Usuário:</label>
+            <input type="text" name="username">
+            <br>
+            <br>
+            <label style="font-family:verdana; color:white">Senha: </label>
+            <input type="password" name="password">
+            <br>
+            <br>
+            <button type="submit">Entrar</button>
+        </div>
+    </form>
+
+    {% for message in messages %}
+        <div align="center">
+            <br><br>
+            <strong style="color:yellow"> Erro de Autenticação  </strong><br> <p style="color:white">{{message}}</p>
+        </div>
+
+    {% endfor %}
+
+</body>
+</html>

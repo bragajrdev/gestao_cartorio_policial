@@ -1,0 +1,30 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+    <h2 style="font-family:verdana; color:gold">Procedimentos</h2>
+    <a href="evento/">
+        <button type="button">Novo Procedimento</button>
+    </a>
+        <div>
+    <ul style="font-family:verdana; color:white">
+        {% for evento in eventos %}
+            <li>
+                <b style="font-family:verdana; color:gold">Procedimento:</b> {{evento.tipo}} - {{evento.procedimento}}
+                <br>
+                <b style="font-family:verdana; color:gold">Fato:</b> {{evento.fato}}
+                <br>
+                <b style="font-family:verdana; color:gold">Investigado:</b> {{evento.investigado}}
+                <br>
+                <b style="font-family:verdana; color:gold">Vítima:</b> {{evento.vitima}}
+                <br>
+                <b style="font-family:verdana; color:gold">Autos:</b> {{evento.autos}}
+                <br>
+                <b style="font-family:verdana; color:gold">Data Instauração:</b> {{evento.get_data_instauracao}}
+                ( <a href="evento/?id={{evento.id}}"; style="font-family:verdana; color:gold">Editar</a>
+                / <a href="evento/delete/{{evento.id}}/"; style="font-family:verdana; color:red">Excluir</a> )
+            </li>
+        <br><br>
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}

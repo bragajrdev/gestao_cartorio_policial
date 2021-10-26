@@ -1,0 +1,36 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+<h2 style="font-family:verdana; color:gold">Procedimento</h2>
+<br>
+<div align="left">
+    <form action="submit" method="POST"> {% csrf_token %}
+        <label style="font-family:verdana; color:white">Número do Procedimento</label>
+        <input type="text" name="procedimento" size="30" value="{{evento.procedimento}}">
+        <input type="number" name="id_evento" value="{{evento.id}}" hidden>
+        <label style="font-family:verdana; color:white">Tipo</label>
+        <input type="text" name="tipo" size="20" value="{{evento.tipo}}">
+        <br><br>
+        <label style="font-family:verdana; color:white">Investigado</label>
+        <input type="text" name="investigado" size="40" value="{{evento.investigado}}">
+        <label style="font-family:verdana; color:white">Vítima</label>
+        <input type="text" name="vitima" size="40" value="{{evento.vitima}}">
+        <br><br>
+        <label style="font-family:verdana; color:white">Fato Apurado</label>
+        <input type="text" name="fato" size="40" value="{{evento.fato}}">
+        <label style="font-family:verdana; color:white">Autos Judiciais</label>
+        <input type="text" name="autos" size="40" value="{{evento.autos}}">
+        <br><br>
+        <label style="font-family:verdana; color:white">Data de Instauração</label>
+        <input type="date" name="data_instauracao" size="30" value="{{evento.get_data_input_instauracao}}">
+        <label style="font-family:verdana; color:white">Data de Remessa</label>
+        <input type="date" name="data_remessa" size="30" value="{{evento.get_data_input_remessa}}">
+        <br><br><br>
+        <button type="submit">Salvar</button>
+        <a href="/">
+            <button type="button">Cancelar</button>
+        </a>
+    </form>
+</div>
+
+{% endblock %}
